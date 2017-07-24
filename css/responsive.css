@@ -1,0 +1,75 @@
+
+/* -------------------------------------------------------
+                     phone & tablet 
+-------------------------------------------------------- */
+
+@media (max-width: 767px){
+
+	.navbar-default .navbar-toggle{
+		background: none;
+		margin-top: 15px;
+		border: none;
+	}
+
+	.navbar-default .navbar-nav>li>a{
+		color: #111 !important;
+		margin: 5px;
+	}
+
+	.navbar-default .navbar-toggle:hover,
+	.navbar-default .navbar-toggle:focus
+	{
+		background: none;
+	}
+
+	.navbar-default .navbar-toggle .icon-bar{
+		background: #fff;
+	}
+
+	.nav-scroll .navbar-toggle .icon-bar{
+		background: #111;
+	}
+		
+	.navbar-default .navbar-collapse{
+		text-align: center;
+		border: none;
+		background: #fff;
+		margin-top: 5px;
+	}
+
+	.header .caption h1{
+		font-size: 38px;
+	}
+
+	.portfolio .filtering span{
+		font-size: 14px;
+		margin: 5px;
+	}
+
+	.subscribe .item{
+		margin-bottom: 50px;
+		text-align: center;
+	}
+
+	.contact .info .item{
+		margin-bottom: 50px;
+	}
+
+}
+
+@media (max-width: 991px){
+
+	.navbar-default .navbar-nav>li{
+		margin: 25px 15px 0;
+	}
+
+	.hero .item,
+	.us .item-img,
+	.services .item,
+	.blog .item,
+	.pric .main-item
+	{
+		margin-bottom: 50px;
+	}
+
+}
