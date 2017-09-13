@@ -20,31 +20,29 @@ db = SQLAlchemy(app)
 
 import models
 
-@app.route('/')
-@app.route('/index')
 """
   This function is decorated with 
   the route decorator above
 """
+@app.route('/')
+@app.route('/index')
 def index():
   return render_template('index.html')
 
 @app.route('/subscribe', methods=['POST'])
 def subscribe():
-  subscriber_email = request.form['email']
+  email = request.form['email']
   """
     If the subscriber email exists already
     abort the request and return
   """
   subscriber = models.Subscriber
-  email_exists = subscriber.query.filter(subscriber.email == subscriber_email).first()
-  print(email_exists)
-  if email_exists:
-    return abort(404)
-  sb = models.Subscriber(email=subscriber_email)
-  db.session.add(sb)
-  db.session.commit()
-  return 'OK'
+  if not subscriber.query.filter(subscriber.email == email).first():
+    sb = models.Subscriber(email=email)
+    db.session.add(sb)
+    db.session.commit()
+    return 'OK'
+  return abort(404)
 
 def store_message(name, email, subject, message):
   msg = models.Message(

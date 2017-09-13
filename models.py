@@ -25,8 +25,4 @@ class Subscriber(db.Model):
   def __repr__(self):
     return '<Subscriber %r>' % (self.email)
 
-  # Implement a mailing system to welcome the new
-  # subscriber, try out celery
-  # checkout https://github.com/celery/celery
-  # def welcome_subscriber():
   
