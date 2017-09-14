@@ -42,7 +42,7 @@ def subscribe():
     db.session.add(sb)
     db.session.commit()
     return 'OK'
-  return abort(404)
+  return abort(409)
 
 def store_message(name, email, subject, message):
   msg = models.Message(
