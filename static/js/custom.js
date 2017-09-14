@@ -139,16 +139,27 @@ $(window).on("load",function (){
             url: url,
             data: $(this).serialize(),
             success: function (data) {
-                console.log('data', data);
-                var messageAlert = 'alert-' + data.type;
-                var messageText = data.message;
+                var messageAlert = 'alert-success';
+                var messageText = 'Your message was successfully sent. Thank You!';
 
-                var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" datdismiss="alert" arihidden="true">&times;</button>' + messageText + '</div>';
-                if (messageAlert && messageText) {
-                    $('#contact-form').find('.messages').html(alertBox);
-                    $('#contact-form')[0].reset();
-                }
-                $(this).reset();
+                var alertBox = '<div class="alert ' + messageAlert;
+                alertBox += ' alert-dismissable"><button type="button" class="close"';
+                alertBox += ' datdismiss="alert" arihidden="true">&times;</button>';
+                alertBox += messageText + '</div>';
+                
+                $('#contact-form').find('.messages').html(alertBox);
+                $('#contact-form')[0].reset();
+            },
+            error: function () {
+                var messageAlert = 'alert-error';
+                var messageText = 'Aww :( we are sorry. Please retry. Thanks!';
+
+                var alertBox = '<div class="alert ' + messageAlert;
+                alertBox += ' alert-dismissable"><button type="button" class="close"';
+                alertBox += ' datdismiss="alert" arihidden="true">&times;</button>';
+                alertBox += messageText + '</div>';
+                
+                $('#contact-form').find('.messages').html(alertBox);
             }
         });
         return false;
@@ -163,9 +174,10 @@ $(window).on("load",function (){
             url: "/subscribe",
             data: $(this).serialize(),
             success: function (data) {
-                $(this).reset();
+
             }
         });
+        $('#subscribe-form')[0].reset();
         return false;
     });
 
